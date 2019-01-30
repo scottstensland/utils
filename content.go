@@ -13,7 +13,7 @@ type Env_Vars struct {
 	Tls_Key		string
 }
 
-func get_env( ptr_curr_spec  *Env_Vars, env_var_prefix string) {
+func Get_env( ptr_curr_spec  *Env_Vars, env_var_prefix string) {
 
     // err := envconfig.Process("GKE", ptr_curr_spec)
     err := envconfig.Process(env_var_prefix, ptr_curr_spec)
