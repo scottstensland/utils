@@ -11,15 +11,15 @@ type Env_Vars struct {
 	Tls_Key		string
 }
 
-func Get_env( env_var_prefix string) ( *Env_Vars, error) {
+func Get_env( env_var_prefix string) ( Env_Vars, error) {
 
-    var ptr_curr_spec *Env_Vars
+    var curr_spec Env_Vars
 
-    err_spec := envconfig.Process(env_var_prefix, ptr_curr_spec)
+    err_spec := envconfig.Process(env_var_prefix, &curr_spec)
     if err_spec != nil {
-		return nil, err_spec
+		return curr_spec, err_spec
     }
 
-	return ptr_curr_spec, nil
+	return curr_spec, nil
 }
 
